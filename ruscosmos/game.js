@@ -146,9 +146,9 @@ theGame.prototype.render = function() {
 	if (drawLine) {
 		game.debug.geom(line);
 	}
-	game.debug.text("Hitpoints left: " + hitpoints, 32, 32);
-	game.debug.text("Velocity: " + velocity + " m/s", 32, 64);
+	game.debug.text("Целостность: " + hitpoints, 32, 32);
+	game.debug.text("Скорость: " + velocity + " м/с", 32, 64);
 
-	game.debug.text("Distance to ISS: " + distance + " m", 500, 32);
+	game.debug.text("Дистанция: " + distance + " м", 500, 32);
 
 };
