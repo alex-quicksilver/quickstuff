@@ -12,7 +12,7 @@ intro.content = [
 	"Время - деньги!",
 ];
 
-
+var loaded = false, introFinished = false;
 intro.prototype.init = function() {};
 intro.prototype.preload = function() {
 
@@ -57,7 +57,9 @@ intro.prototype.preload = function() {
 
 };
 intro.prototype.create = function() {
-	// this.game.state.start("TheGame");
+	loaded = true;
+	if (introFinished) this.game.state.start("TheGame");
+
 };
 
 intro.prototype.updateLine = function() {
@@ -80,6 +82,7 @@ intro.prototype.nextLine = function() {
 		this.line = '';
 		game.time.events.repeat(40, intro.content[this.index].length + 1, this.updateLine, this);
 	} else {
-		this.game.state.start("TheGame");
+		introFinished = true;
+		if (loaded)	this.game.state.start("TheGame");
 	}
 };
